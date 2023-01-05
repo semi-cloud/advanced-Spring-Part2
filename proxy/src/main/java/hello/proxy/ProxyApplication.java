@@ -1,8 +1,6 @@
 package hello.proxy;
 
-import hello.proxy.config.AppConfigV1;
-import hello.proxy.config.AppConfigV2;
-import hello.proxy.config.v1_proxy.InterfaceProxyConfig;
+import hello.proxy.config.v1_proxy.ConcreteProxyConfig;
 import hello.proxy.trace.logtrace.LogTrace;
 import hello.proxy.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +17,8 @@ import org.springframework.context.annotation.Import;
  * : 값을 설정하면 해당 패키지와 그 하위 패키지를 컴포넌트 스캔, 값을 설정하지 않으면 전체 스캔
  */
 //@Import({AppConfigV1.class, AppConfigV2.class})
-@Import(InterfaceProxyConfig.class)
+//@Import(InterfaceProxyConfig.class)
+@Import(ConcreteProxyConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.proxy.app")
 public class ProxyApplication {
 
