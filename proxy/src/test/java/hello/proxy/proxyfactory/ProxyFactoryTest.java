@@ -1,6 +1,5 @@
 package hello.proxy.proxyfactory;
 
-import hello.proxy.cglib.code.TimeMethodInterceptor;
 import hello.proxy.common.advice.TimeAdvice;
 import hello.proxy.common.service.ConcreteService;
 import hello.proxy.common.service.ServiceImpl;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.AopUtils;
-import org.springframework.cglib.proxy.Enhancer;
 
 @Slf4j
 public class ProxyFactoryTest {
