@@ -55,7 +55,6 @@ public class AspectV6Advice {
         log.info("[ex] {} message={}", joinPoint.getSignature(), ex.getMessage());
     }
 
-
     // 정상 및 예외 반환 조건을 모두 처리
     @After("hello.aop.order.aop.Pointcuts.allOrderAndService()")
     public void doAfter(JoinPoint joinPoint) {
