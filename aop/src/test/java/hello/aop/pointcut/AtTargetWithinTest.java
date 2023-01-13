@@ -14,6 +14,19 @@ import org.springframework.context.annotation.Import;
 /**
  * 주의 : @target 단독이 아닌, 반드시 프록시 적용 대상을 축소하는 표현식(execution)과 함께 사용해야 함
  */
+
+/**
+ * 문제 상황: @SpringBootTest + @Configuration
+ * => 의존성이 먹히지 않아서 AOP 자체가 동작하지 않는 문제 발생
+ *
+ * 원인
+ * => 내부 클래스에 선언된 @Configuration 클래스 경로가 자동으로 컴포넌트 스캔의 기본패키지로 지정되기 때문에(우선권을 가짐),
+ * 모든 스프링 부트의 다양한 설정들이 먹히지 않게 되는데 따라서 AutoProxy와 같은 스프링 부트가 자동으로 만들어주는 AOP 기본 클래스도 빈으로 등록 X
+ *
+ * 해결 방법
+ * => 1. @EnableAspectJProxy + @Configuration : 기존`src/main` 모듈 설정 따로, AOP 설정 따로 해주어야 하므로 번거로움
+ * => 2. @TestConfiguration :  `src/main`전체 모듈의 기본적인 설정 + 추가적인 테스트 Config 설정
+ */
 @Slf4j
 @Import(AtTargetWithinTest.Config.class)
 @SpringBootTest
