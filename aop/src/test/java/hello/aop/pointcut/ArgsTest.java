@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Execution과 차이점
  * => 파라미터에 부모 타입 선언 가능
+ * => 런타임 객체 인스턴스를 보고 판단하기 때문에
  */
 @Slf4j
 public class ArgsTest {
